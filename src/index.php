@@ -33,7 +33,9 @@ $router = new RouteCollector();
 require 'model/Peso.php';
 require 'model/Error.php';
 require 'model/Success.php';
+require 'model/Medicacao.php';
 require 'model/Session.php';
+require 'model/Raca.php';
 
 // Routes
 require 'routes/animal/create.php';
@@ -42,7 +44,16 @@ require 'routes/animal/pesos/add.php';
 
 require 'routes/auth/register.php';
 require 'routes/auth/login.php';
+require 'routes/auth/logout.php';
 require 'routes/auth/info.php';
+
+require 'routes/racas/get.php';
+require 'routes/racas/create.php';
+
+require 'routes/remedio/create.php';
+require 'routes/remedio/get.php';
+
+header('Access-Control-Allow-Origin: *');
 
 # Preparar o cara que escolhe a rota certa
 $dispatcher = new Dispatcher($router->getData());

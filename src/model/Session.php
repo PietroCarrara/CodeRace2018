@@ -9,6 +9,11 @@ function sessionInit($data) {
 	}
 
 	session_id($data->token);
+
+	if (!isset($_SESSION['user'])) {
+		echo newError('Invalid login provided!');
+		die();
+	}
 }
 
 ?>
