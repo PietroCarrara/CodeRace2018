@@ -1,0 +1,11 @@
+# Turn rewriting on
+Options +FollowSymLinks
+RewriteEngine On
+
+# Permitir arquivos estáticos
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|\.woff|robots\.txt)
+
+# Redirect requests to index.php
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteRule .* /index.php
+
