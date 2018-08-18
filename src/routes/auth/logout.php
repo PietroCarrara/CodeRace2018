@@ -7,6 +7,8 @@ $router->post('/auth/logout', function() {
 	sessionInit($data);
 
 	session_destroy();
+
+	echo newSuccess();
 });
 
 ?>

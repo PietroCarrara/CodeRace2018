@@ -19,17 +19,19 @@ $router->post('/animal/list', function() {
 		$an['nome'] = $animal->nome;
 		$an['nasc'] = $animal->nasc;
 		$an['raca'] = $animal->raca;
+		$an['tipo'] = $animal->tipo;
 
 		$an['pesos'] = $animal->ownPesoList;
 
-		// $an['pai'] = $animal->pai->id;
-		// $an['mae'] = $animal->mae->id;
+		$an['medicacoes'] = $animal->ownMedicacaoList;
+
+		if (isset($animal->pai)) $an['pai'] = $animal->pai->id;
+		if (isset($animal->mae)) $an['mae'] = $animal->mae->id;
 
 		$res[] = $an;
-
 	}
 
-	echo newSuccess($res);
+	echo newSuccess( [ 'list' => $res ]);
 });
 
 $router->post('/animal/{id}', function($id) {
@@ -53,8 +55,14 @@ $router->post('/animal/{id}', function($id) {
 	$res['nome'] = $animal->nome;
 	$res['nasc'] = $animal->nasc;
 	$res['raca'] = $animal->raca;
+	$res['tipo'] = $animal->tipo;
 
 	$res['pesos'] = $animal->ownPesoList;
+
+	$res['medicacoes'] = $animal->ownMedicacaoList;
+
+	if (isset($animal->pai)) $res['pai'] = $animal->pai->id;
+	if (isset($animal->mae)) $res['mae'] = $animal->mae->id;
 
 	echo newSuccess($res);
 });

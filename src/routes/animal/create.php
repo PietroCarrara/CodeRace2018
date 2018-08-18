@@ -16,6 +16,7 @@ $router->post('/animal/create', function() {
 	$animal->nome = $data->nome;
 	$animal->nasc = new DateTime($data->nasc);
 	$animal->raca = newRaca($data->raca->id);
+	$animal->tipo = $data->tipo;
 	$animal->vivo = true;
 	
 	if (isset($data->peso)) $animal->ownPesoList[] = newPeso($data->peso);

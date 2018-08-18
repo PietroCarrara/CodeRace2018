@@ -8,7 +8,7 @@ $router->post('/remedio/list', function() {
 
 	$remedio = R::find('remedio', 'dono_id = ?', [ $_SESSION['user']->id ]);
 
-	echo newSuccess($remedio);
+	echo newSuccess( [ 'list' => $remedio ]);
 });
 
 $router->post('/remedio/{id}', function($id) {
